@@ -1,17 +1,16 @@
 package com.JulioFilho.MiniAgendamento.model;
 
-import com.JulioFilho.MiniAgendamento.model.StatusAgendamento;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "tb_agendamento")
 
 public class Agendamento {
@@ -27,10 +26,10 @@ public class Agendamento {
     private String descricao;
 
     @Column(name="data_inicio", nullable = false)
-    private String dataInicio;
+    private LocalDateTime dataInicio;
 
     @Column(name="data_fim", nullable = false)
-    private String dataFim;
+    private LocalDateTime dataFim;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
@@ -39,10 +38,10 @@ public class Agendamento {
     @Column(nullable = false, length = 80)
     private String usuario;
 
-    @Column(name = "crieado_em", nullable = false)
-    private String criadoEm;
-
     @Column(name = "atualizado_em", nullable = false)
-    private String autalizadoEm;
+    private LocalDateTime atualizadoEm;
+
+    @Column(name = "criado_em", nullable = false)
+    private LocalDateTime criadoEm;
 
 }
